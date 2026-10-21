@@ -8,10 +8,10 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 
 | 프로젝트 | 설계 포인트 | 자료 |
 | --- | --- | --- |
-| [Tick 기반 버튼 디바운싱](my_btn_debounce/README.md) | 1 ms 샘플링, 약 10 ms 안정화, 상승 에지 기반 LED 토글 | [영상](my_btn_debounce/media/demo.mp4) |
-| [시프트 레지스터·FSM 패턴 검출](07_2.shift_reg_101_detect/README.md) | 1010111 검출의 두 구현 방식, 버튼 해제 이벤트 처리 | [보고서](07_2.shift_reg_101_detect/docs/report.pdf) · [시프트 영상](07_2.shift_reg_101_detect/media/shift-register-demo.mp4) · [FSM 영상](07_2.shift_reg_101_detect/media/fsm-demo.mp4) |
-| [실행·정지 카운터](my_up_counter/README.md) | 10 ms 주기 증가, RUN/STOP 전환, 정지 중 초기화 | [보고서](my_up_counter/docs/report.pdf) · [영상](my_up_counter/media/demo.mp4) |
-| [LED 왕복 FSM](06_1.btn_debounce_10ms/README.md) | 버튼 디바운싱, 위치·방향 상태 제어 | [보고서](06_1.btn_debounce_10ms/docs/report.pdf) · [영상](06_1.btn_debounce_10ms/media/demo.mp4) |
+| [Tick 기반 버튼 디바운싱](my_btn_debounce/README.md) | 1 ms 샘플링, 약 10 ms 안정화, 상승 에지 기반 LED 토글 | [영상](my_btn_debounce/media/demo.mp4?raw=true) |
+| [시프트 레지스터·FSM 패턴 검출](07_2.shift_reg_101_detect/README.md) | 1010111 검출의 두 구현 방식, 버튼 해제 이벤트 처리 | [보고서](07_2.shift_reg_101_detect/docs/report.pdf) · [시프트 영상](07_2.shift_reg_101_detect/media/shift-register-demo.mp4?raw=true) · [FSM 영상](07_2.shift_reg_101_detect/media/fsm-demo.mp4?raw=true) |
+| [실행·정지 카운터](my_up_counter/README.md) | 10 ms 주기 증가, RUN/STOP 전환, 정지 중 초기화 | [보고서](my_up_counter/docs/report.pdf) · [영상](my_up_counter/media/demo.mp4?raw=true) |
+| [LED 왕복 FSM](06_1.btn_debounce_10ms/README.md) | 버튼 디바운싱, 위치·방향 상태 제어 | [보고서](06_1.btn_debounce_10ms/docs/report.pdf) · [영상](06_1.btn_debounce_10ms/media/demo.mp4?raw=true) |
 
 ## 전체 실습 목록
 
@@ -77,10 +77,10 @@ vvp "$env:TEMP/fpga-pattern-sim.vvp"
 ├── sim_1/         # 테스트벤치 (있는 경우)
 ├── constrs_1/     # 핀·타이밍 제약 (있는 경우)
 ├── docs/          # 제공된 PDF 보고서 사본 (있는 경우)
-└── media/         # 보드 시연 영상과 미리보기 (있는 경우)
+└── media/         # H.264 MP4와 GIF 미리보기 (있는 경우)
 ```
 
-제공 자료는 보고서 9개와 영상 7개이며, 링크를 공유할 수 있도록 저장소 안에 복사했습니다. 각 실습 README에 원본 파일명을 기록했습니다. 영상은 미리보기를 누르면 열 수 있으며, 뷰어에서 재생을 지원하지 않으면 파일을 내려받아 재생합니다. 다운로드 폴더에서 찾지 못한 영상은 프로젝트 상위 폴더의 동일 이름 파일을 사용했습니다.
+제공 자료는 보고서 9개와 영상 7개이며, 링크를 공유할 수 있도록 저장소 안에 복사했습니다. 각 실습 README에 원본 파일명을 기록했습니다. 각 상세 README에는 전체 동작을 볼 수 있는 GIF 미리보기를 넣었습니다. 영상 링크는 MP4 원본 데이터 열기·다운로드용입니다. 브라우저에서 다운로드가 시작되면 저장한 파일을 재생하세요. MP4는 H.264/AAC로 변환했으며 제공 원본은 저장소 밖에 보존되어 있습니다. 다운로드 폴더에서 찾지 못한 영상은 프로젝트 상위 폴더의 동일 이름 파일을 사용했습니다.
 
 `my_btn_debounce` PDF는 읽기·렌더링 오류가 있어 원본 보존용으로 연결했습니다. 나머지 보고서 및 시연 자료는 기존 구현 기록이며 현재 RTL과 버전이 일치한다는 보장은 없습니다.
 

@@ -35,14 +35,14 @@ Vivado 프로젝트 생성과 합성·보드 실행 절차는 [공통 실행 방
 
 ## 보고서와 시연 자료
 
-제공받은 구현 자료의 사본입니다. PDF·영상이 현재 RTL과 동일한 버전인지까지 대조 검증한 것은 아닙니다. 영상 미리보기는 원본 2초 지점의 프레임입니다.
+제공받은 구현 자료의 사본입니다. PDF·영상이 현재 RTL과 동일한 버전인지까지 대조 검증한 것은 아닙니다. 영상 미리보기는 전체 영상의 움직이는 GIF입니다. MP4는 브라우저 호환성을 위해 H.264/AAC로 변환했으며, 원본 파일은 저장소 밖의 제공 위치에 보존되어 있습니다.
 
 | 자료 | 제공 원본명 |
 | --- | --- |
 | [LED FSM 구현 보고서](docs/report.pdf) | `led fsm melay machine 구현.pdf` |
-| [LED FSM 시연 영상](media/demo.mp4) | `led_fsm_동작동영상.mp4` |
+| [LED FSM 시연 영상](media/demo.mp4?raw=true) | `led_fsm_동작동영상.mp4` |
 
-[![LED FSM 시연 영상 미리보기](media/demo.jpg)](media/demo.mp4)
+[![LED FSM 시연 영상 미리보기](media/demo.gif)](media/demo.mp4?raw=true)
 
 ## 현재 상태와 주의사항
 
