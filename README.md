@@ -8,7 +8,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 
 | 프로젝트 | 설계 포인트 | 자료 |
 | --- | --- | --- |
-| [분·초 시계 & 스톱워치](minsec_stopwatch_project/README.md) | 10 ms 측정, 모드 FSM, FND 다중화, PAUSE 애니메이션 | [발표자료](minsec_stopwatch_project/docs/minsec-stopwatch.pptx?raw=true) · [영상](minsec_stopwatch_project/media/demo.mp4?raw=true) |
+| [분·초 시계 & 스톱워치](minsec_stopwatch_project/README.md) | 10 ms 측정, 모드 FSM, FND 다중화, PAUSE 애니메이션 | [발표자료](minsec_stopwatch_project/docs/minsec-stopwatch.pptx) · [영상](minsec_stopwatch_project/media/demo.mp4?raw=true) |
 | [Tick 기반 버튼 디바운싱](my_btn_debounce/README.md) | 1 ms 샘플링, 약 10 ms 안정화, 상승 에지 기반 LED 토글 | [영상](my_btn_debounce/media/demo.mp4?raw=true) |
 | [시프트 레지스터·FSM 패턴 검출](07_2.shift_reg_101_detect/README.md) | 1010111 검출의 두 구현 방식, 버튼 해제 이벤트 처리 | [보고서](07_2.shift_reg_101_detect/docs/report.pdf) · [시프트 영상](07_2.shift_reg_101_detect/media/shift-register-demo.mp4?raw=true) · [FSM 영상](07_2.shift_reg_101_detect/media/fsm-demo.mp4?raw=true) |
 | [실행·정지 카운터](my_up_counter/README.md) | 10 ms 주기 증가, RUN/STOP 전환, 정지 중 초기화 | [보고서](my_up_counter/docs/report.pdf) · [영상](my_up_counter/media/demo.mp4?raw=true) |
