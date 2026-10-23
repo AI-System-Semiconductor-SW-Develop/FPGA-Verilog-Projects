@@ -8,6 +8,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 
 | 프로젝트 | 설계 포인트 | 자료 |
 | --- | --- | --- |
+| [분·초 시계 & 스톱워치](minsec_stopwatch_project/README.md) | 10 ms 측정, 모드 FSM, FND 다중화, PAUSE 애니메이션 | [발표자료](minsec_stopwatch_project/docs/minsec-stopwatch.pptx?raw=true) · [영상](minsec_stopwatch_project/media/demo.mp4?raw=true) |
 | [Tick 기반 버튼 디바운싱](my_btn_debounce/README.md) | 1 ms 샘플링, 약 10 ms 안정화, 상승 에지 기반 LED 토글 | [영상](my_btn_debounce/media/demo.mp4?raw=true) |
 | [시프트 레지스터·FSM 패턴 검출](07_2.shift_reg_101_detect/README.md) | 1010111 검출의 두 구현 방식, 버튼 해제 이벤트 처리 | [보고서](07_2.shift_reg_101_detect/docs/report.pdf) · [시프트 영상](07_2.shift_reg_101_detect/media/shift-register-demo.mp4?raw=true) · [FSM 영상](07_2.shift_reg_101_detect/media/fsm-demo.mp4?raw=true) |
 | [실행·정지 카운터](my_up_counter/README.md) | 10 ms 주기 증가, RUN/STOP 전환, 정지 중 초기화 | [보고서](my_up_counter/docs/report.pdf) · [영상](my_up_counter/media/demo.mp4?raw=true) |
@@ -32,6 +33,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 | 초기 기록 | [btn_debounce](btn_debounce/README.md) | 초기 디바운싱 실습 기록 | 초기 실습 기록 · 단독 실행 구성 미완성 |
 | 순차논리 | [my_btn_debounce](my_btn_debounce/README.md) | Tick 기반 버튼 디바운싱과 LED 토글 | RTL · XDC · 테스트벤치 · 영상 · PDF 열기 오류 |
 | 순차논리 | [my_up_counter](my_up_counter/README.md) | 실행·정지 가능한 16비트 자동 카운터 | RTL · XDC · 보고서 · 영상 · 전용 테스트벤치 없음 |
+| 순차논리 | [minsec_stopwatch_project](minsec_stopwatch_project/README.md) | 분·초 시계와 스톱워치, 4자리 FND, 무입력 애니메이션 | RTL · XDC · 제어기 단위 테스트벤치 · 발표자료 · 영상 |
 
 폴더와 모듈 이름의 `moor`, `melay`, `subtracter`는 기존 표기를 유지했습니다. 각 폴더는 독립 실습이며 저장소 전체를 하나의 설계로 추가하지 않습니다.
 
@@ -43,6 +45,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 4. 디바운싱과 에지 검출을 통해 버튼 한 번을 하나의 입력 이벤트로 바꿉니다.
 5. Moore/Mealy FSM과 시프트 레지스터로 패턴을 검출합니다.
 6. 카운터에 실행·정지·초기화 제어를 결합합니다.
+7. 분·초 시계와 스톱워치를 통합하고 FND 다중화·상태 표시·무입력 애니메이션으로 확장합니다.
 
 ## 실행 방법
 
@@ -76,16 +79,16 @@ vvp "$env:TEMP/fpga-pattern-sim.vvp"
 ├── sources_1/     # Verilog RTL
 ├── sim_1/         # 테스트벤치 (있는 경우)
 ├── constrs_1/     # 핀·타이밍 제약 (있는 경우)
-├── docs/          # 제공된 PDF 보고서 사본 (있는 경우)
+├── docs/          # 제공된 PDF 보고서·PPTX 발표자료 사본 (있는 경우)
 └── media/         # H.264 MP4와 GIF 미리보기 (있는 경우)
 ```
 
-제공 자료는 보고서 9개와 영상 7개이며, 링크를 공유할 수 있도록 저장소 안에 복사했습니다. 각 실습 README에 원본 파일명을 기록했습니다. 각 상세 README에는 전체 동작을 볼 수 있는 GIF 미리보기를 넣었습니다. 영상 링크는 MP4 원본 데이터 열기·다운로드용입니다. 브라우저에서 다운로드가 시작되면 저장한 파일을 재생하세요. MP4는 H.264/AAC로 변환했으며 제공 원본은 저장소 밖에 보존되어 있습니다. 다운로드 폴더에서 찾지 못한 영상은 프로젝트 상위 폴더의 동일 이름 파일을 사용했습니다.
+제공 자료는 PDF 보고서 9개, PPTX 발표자료 1개와 영상 8개이며, 링크를 공유할 수 있도록 저장소 안에 복사했습니다. 각 실습 README에 원본 파일명을 기록했습니다. 각 상세 README에는 전체 동작을 볼 수 있는 GIF 미리보기를 넣었습니다. 영상 링크는 MP4 원본 데이터 열기·다운로드용입니다. 브라우저에서 다운로드가 시작되면 저장한 파일을 재생하세요. MP4는 H.264/AAC로 변환했으며 제공 원본은 저장소 밖에 보존되어 있습니다. 다운로드 폴더에서 찾지 못한 영상은 프로젝트 상위 폴더의 동일 이름 파일을 사용했습니다.
 
 `my_btn_debounce` PDF는 읽기·렌더링 오류가 있어 원본 보존용으로 연결했습니다. 나머지 보고서 및 시연 자료는 기존 구현 기록이며 현재 RTL과 버전이 일치한다는 보장은 없습니다.
 
 ## 검증 범위
 
-이 문서는 RTL·테스트벤치·XDC, 제공 보고서와 영상 미리보기를 확인해 작성했습니다. 이번 문서화 과정에서 시뮬레이션, 합성, 타이밍 분석이나 보드 프로그램을 다시 수행하지 않았습니다. 자료 보유 여부와 현재 자동 테스트 통과 여부는 구분합니다.
+이 문서는 RTL·테스트벤치·XDC, 제공 보고서·발표자료와 영상 미리보기를 확인해 작성했습니다. 이번 문서화 과정에서 시뮬레이션, 합성, 타이밍 분석이나 보드 프로그램을 다시 수행하지 않았습니다. 자료 보유 여부와 현재 자동 테스트 통과 여부는 구분합니다.
 
 중복 모듈, 테스트벤치 포트 불일치, 미완성 예제 등 실행에 영향을 주는 항목은 각 실습의 **현재 상태와 주의사항**에 정리했습니다. Verilog 소스 자체는 이번 문서화에서 변경하지 않았습니다.
