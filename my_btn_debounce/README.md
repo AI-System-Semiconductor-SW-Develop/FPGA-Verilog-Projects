@@ -43,19 +43,17 @@ Vivado 프로젝트 생성과 합성·보드 실행 절차는 [공통 실행 방
 | --- | --- | --- |
 | [tb_my_btn_debounce.v](sim_1/tb_my_btn_debounce.v) | `tb_top_my_btn_debounce` | 노이즈, 첫 누름, 해제, 두 번째 누름과 최종 해제 검사 |
 
-문서 작성 과정에서 시뮬레이션을 새로 실행하지 않았습니다. PASS/FAIL 문구는 테스트벤치가 기대하는 결과이며 실제 재실행 결과와 구분합니다.
-
 ## 보고서와 시연 자료
 
-제공받은 구현 자료의 사본입니다. PDF·영상이 현재 RTL과 동일한 버전인지까지 대조 검증한 것은 아닙니다. 영상 미리보기는 전체 영상의 움직이는 GIF입니다. MP4는 브라우저 호환성을 위해 H.264/AAC로 변환했으며, 원본 파일은 저장소 밖의 제공 위치에 보존되어 있습니다.
+GIF로 동작을 미리 보고, MP4로 전체 영상과 소리를 확인할 수 있습니다.
 
-| 자료 | 제공 원본명 |
+| 자료 | 파일명 |
 | --- | --- |
-| [제공 보고서 원본 (열기 오류, 재내보내기 필요)](docs/report-original.pdf) | `my_btn_debounce_곽혜민.pdf` |
+| [구현 보고서 (열기 오류)](docs/report-original.pdf) | `my_btn_debounce_곽혜민.pdf` |
 | [버튼 디바운싱 시연 영상](media/demo.mp4?raw=true) | `my_btn_debounce_동작 동영상.mp4` |
 
 [![버튼 디바운싱 시연 영상 미리보기](media/demo.gif)](media/demo.mp4?raw=true)
 
 ## 현재 상태와 주의사항
 
-`sim_1/my_btn_debounce.v`도 같은 테스트벤치 모듈명을 정의하므로 아래 표의 `tb_my_btn_debounce.v`만 추가합니다. 제공 PDF는 pypdf와 Poppler 모두 정상적으로 읽지 못했습니다. 원본을 보존했으며 문서 재내보내기가 필요합니다. 기능 설명은 RTL 기준입니다.
+`sim_1/my_btn_debounce.v`도 같은 테스트벤치 모듈명을 정의하므로 시뮬레이션 목록의 `tb_my_btn_debounce.v`만 추가합니다. PDF 파일에 열기 오류가 있어 재내보내기가 필요합니다.

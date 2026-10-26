@@ -39,13 +39,9 @@ Vivado 프로젝트 생성과 합성·보드 실행 절차는 [공통 실행 방
 | [tb_encoder.v](sim_1/tb_encoder.v) | `tb_encoder` | 인코더 입력별 출력, 아래 구현 문제 참고 |
 | [tb_priority.v](sim_1/tb_priority.v) | `tb_priority` | 16가지 입력 조합의 우선순위와 유효 신호 |
 
-문서 작성 과정에서 시뮬레이션을 새로 실행하지 않았습니다. PASS/FAIL 문구는 테스트벤치가 기대하는 결과이며 실제 재실행 결과와 구분합니다.
-
 ## 보고서와 시연 자료
 
-제공받은 보고서의 사본입니다. 보고서가 현재 RTL과 동일한 버전인지까지 대조 검증한 것은 아닙니다.
-
-| 자료 | 제공 원본명 |
+| 자료 | 파일명 |
 | --- | --- |
 | [우선순위 인코더 보고서](docs/priority-encoder-report.pdf) | `priority_encoder_곽헤민.pdf` |
 
