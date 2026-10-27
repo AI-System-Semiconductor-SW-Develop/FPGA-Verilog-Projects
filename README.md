@@ -1,6 +1,6 @@
 # FPGA Verilog Projects
 
-Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스터, 카운터, PWM 모터 제어까지 구현한 FPGA 실습 모음입니다. Basys 3용 RTL·핀 제약·테스트벤치와 구현 보고서 및 보드 시연 영상을 함께 정리했습니다.
+Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스터, 카운터, PWM 모터·부저 제어까지 구현한 FPGA 실습 모음입니다. Basys 3용 RTL·핀 제약·테스트벤치와 구현 보고서 및 보드 시연 영상을 함께 정리했습니다.
 
 각 실습의 **설계 구조, Top 설정, 소스 의존성, 테스트 상태, 보고서와 영상**은 아래 상세 README에서 확인할 수 있습니다.
 
@@ -8,6 +8,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 
 | 프로젝트 | 설계 포인트 | 자료 |
 | --- | --- | --- |
+| [PWM 부저 음계·효과음](11.pwm_buzzer/README.md) | 음계 분주, 70 ms 간격 4단계 효과음, 모드 전환 | [보고서](11.pwm_buzzer/docs/report.pdf) · [소리 포함 영상](11.pwm_buzzer/media/demo.mp4?raw=true) |
 | [DC 모터 PWM 제어](10.pwm_control/README.md) | 10 MHz PWM, 10% 단위 듀티 조절, 방향·FND 표시 | [보고서](10.pwm_control/docs/report.pdf) · [영상](10.pwm_control/media/demo.mp4?raw=true) · [측정 사진](10.pwm_control/README.md#오실로스코프-측정-기록) |
 | [분·초 시계 & 스톱워치](minsec_stopwatch_project/README.md) | 10 ms 측정, 모드 FSM, FND 다중화, PAUSE 애니메이션 | [발표자료](minsec_stopwatch_project/docs/minsec-stopwatch.pptx) · [영상](minsec_stopwatch_project/media/demo.mp4?raw=true) |
 | [Tick 기반 버튼 디바운싱](my_btn_debounce/README.md) | 1 ms 샘플링, 약 10 ms 안정화, 상승 에지 기반 LED 토글 | [영상](my_btn_debounce/media/demo.mp4?raw=true) |
@@ -36,6 +37,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 | 순차논리 | [my_up_counter](my_up_counter/README.md) | 실행·정지 가능한 16비트 자동 카운터 | RTL · XDC · 보고서 · 영상 · 전용 테스트벤치 없음 |
 | 순차논리 | [minsec_stopwatch_project](minsec_stopwatch_project/README.md) | 분·초 시계와 스톱워치, 4자리 FND, 무입력 애니메이션 | RTL · XDC · 제어기 단위 테스트벤치 · 발표자료 · 영상 |
 | 순차논리 | [10.pwm_control](10.pwm_control/README.md) | DC 모터 PWM 제어와 듀티·방향 표시 | RTL · XDC · 보고서 · 영상 · 측정 사진 3장 · 전용 테스트벤치 없음 |
+| 순차논리 | [11.pwm_buzzer](11.pwm_buzzer/README.md) | 일반 음계와 전원·문 열림 효과음 | RTL · XDC · 테스트벤치 · 보고서 · 영상 · 버튼·LED 연결 확인사항 |
 
 폴더와 모듈 이름의 `moor`, `melay`, `subtracter`는 기존 표기를 유지했습니다. 각 폴더는 독립 실습이며 저장소 전체를 하나의 설계로 추가하지 않습니다.
 
@@ -49,6 +51,7 @@ Verilog HDL로 조합논리부터 버튼 입력 처리, FSM, 시프트 레지스
 6. 카운터에 실행·정지·초기화 제어를 결합합니다.
 7. 분·초 시계와 스톱워치를 통합하고 FND 다중화·상태 표시·무입력 애니메이션으로 확장합니다.
 8. PWM 듀티와 모터 방향을 제어하고 오실로스코프로 출력 파형을 관찰합니다.
+9. 클럭 분주로 음계를 생성하고 단계별 재생 제어로 부저 효과음을 구현합니다.
 
 ## 실행 방법
 
@@ -86,7 +89,7 @@ vvp "$env:TEMP/fpga-pattern-sim.vvp"
 └── media/         # H.264 MP4, GIF 미리보기, 측정 사진 (있는 경우)
 ```
 
-PDF 보고서 10개, PPTX 발표자료 1개, 영상 9개와 PWM 측정 사진 3장을 포함합니다. 각 프로젝트 README에서 보고서와 시연 자료를 확인할 수 있습니다. GIF로 동작을 미리 보고, H.264/AAC MP4로 전체 영상을 재생할 수 있습니다. 영상 링크에서 다운로드가 시작되면 저장한 파일을 재생하세요.
+PDF 보고서 11개, PPTX 발표자료 1개, 영상 10개와 PWM 측정 사진 3장을 포함합니다. 각 프로젝트 README에서 보고서와 시연 자료를 확인할 수 있습니다. GIF로 동작을 미리 보고, H.264/AAC MP4로 전체 영상을 재생할 수 있습니다. 영상 링크에서 다운로드가 시작되면 저장한 파일을 재생하세요.
 
 `my_btn_debounce` PDF에는 열기 오류가 있어 재내보내기가 필요합니다.
 
